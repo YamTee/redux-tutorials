@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { orderCake, restockCake } from "../redux/cakeStore/cakeStoreActions";
+// import { orderCake, restockCake } from "../redux/cakeStore/cakeStoreActions";
 import { bindActionCreators } from "@reduxjs/toolkit";
+
+import { orderCake, restockCake } from "../redux/cakeStore/cakeSlice";
 
 export const OrderCake = () => {
   const cakes = useSelector((state) => state.cake?.cakes);
@@ -25,7 +27,7 @@ export const OrderCake = () => {
       </button>
 
       <button
-        onClick={() => actions.restockCake()}
+        onClick={() => actions.restockCake(1)}
         className="mt-6 cursor-pointer rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition hover:bg-blue-700"
       >
         Restock Cake

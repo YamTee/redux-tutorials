@@ -1,8 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
+// import {
+//   orderIceCream,
+//   restockIcecream,
+// } from "../redux/icecreamStore/icecreamStoreActions";
+
 import {
-  orderIceCream,
+  orderIcecream,
   restockIcecream,
-} from "../redux/icecreamStore/icecreamStoreActions";
+} from "../redux/icecreamStore/icecreamSlice";
 
 export const OrderIceCream = () => {
   const icecreams = useSelector((state) => state.icecream.icecreams);
@@ -18,14 +23,14 @@ export const OrderIceCream = () => {
       <div className="mt-2 text-5xl font-bold text-white">{icecreams}</div>
 
       <button
-        onClick={() => dispatch(orderIceCream())}
+        onClick={() => dispatch(orderIcecream())}
         className="mt-6 cursor-pointer rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition hover:bg-blue-700"
       >
         Order Cake
       </button>
 
       <button
-        onClick={() => dispatch(restockIcecream())}
+        onClick={() => dispatch(restockIcecream(1))}
         className="mt-6 cursor-pointer rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition hover:bg-blue-700"
       >
         Restock Cake
